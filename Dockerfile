@@ -24,10 +24,10 @@ COPY --from=builder /app/dist/piper_tts-*linux*.whl ./dist/
 RUN pip3 install ./dist/piper_tts-*linux*.whl
 RUN pip3 install 'flask>=3,<4'
 
-RUN python3 -m piper.download_voices --data-dir /data en_US-lessac-medium
+RUN python3 -m piper.download_voices --data-dir /data en_US-amy-medium
 
 COPY docker/entrypoint.sh /
 
 EXPOSE 5000
 
-CMD ["/entrypoint.sh", "server", "-m", "en_US-lessac-medium"]
+CMD ["/entrypoint.sh", "server", "-m", "en_US-amy-medium"]
