@@ -2,7 +2,7 @@ FROM python:3.12 AS builder
 
 RUN apt-get update && \
     apt-get install --yes --no-install-recommends \
-      build-essential cmake ninja-build git
+    build-essential cmake ninja-build git
 
 WORKDIR /app
 
@@ -28,4 +28,4 @@ COPY docker/entrypoint.sh /
 
 EXPOSE 5000
 
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/entrypoint.sh", "server"]
